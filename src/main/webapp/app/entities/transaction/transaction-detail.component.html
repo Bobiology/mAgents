@@ -1,0 +1,54 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="transaction">
+            <h2><span>Transaction</span> {{ transaction.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span>Trans Reference</span></dt>
+                <dd>
+                    <span>{{ transaction.transReference }}</span>
+                </dd>
+                <dt><span>Trans Amount</span></dt>
+                <dd>
+                    <span>{{ transaction.transAmount }}</span>
+                </dd>
+                <dt><span>Currency</span></dt>
+                <dd>
+                    <span>{{ transaction.currency }}</span>
+                </dd>
+                <dt><span>Trans Type</span></dt>
+                <dd>
+                    <span>{{ transaction.transType }}</span>
+                </dd>
+                <dt><span>Trans Status</span></dt>
+                <dd>
+                    <span>{{ transaction.transStatus }}</span>
+                </dd>
+                <dt><span>Cust ID</span></dt>
+                <dd>
+                    <span>{{ transaction.custID }}</span>
+                </dd>
+                <dt><span>Trans Date</span></dt>
+                <dd>
+                    <span>{{ transaction.transDate }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/transaction', transaction.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,46 @@
+entity Transaction{
+TransReference String required unique,
+TransAmount Long, 
+Currency Integer, 
+TransType TransType, 
+TransStatus String, 
+CustID String,
+TransDate Instant 
+}
+
+enum TransType {
+    DEPOSIT, WITHDRAWAL
+}
+
+entity Customer{
+CustomerID String required unique,
+FirstName String required, 
+LastName String required, 
+EmailAddress String,
+HomePhone String, 
+MobilePhone String, 
+Attachment ImageBlob, 
+Notes String,
+DateCreated Instant
+}
+
+entity Users {
+UserID String required unique, 
+Username String, 
+Password String, 
+Roles String,
+DateAssigned Instant
+}
+
+// Set pagination options
+paginate Users with infinite-scroll
+paginate Transaction, Customer with pagination
+
+// Use Data Transfer Objects (DTO)
+// dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl
+
+// Set an angular suffix
+// angularSuffix * with mySuffix

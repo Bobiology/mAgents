@@ -1,0 +1,8 @@
+version: '2'
+services:
+  magents-mongodb:
+    image: mongo:4.2.7
+    ports:
+      - '27017:27017'
+    # volumes:
+    #     - ~/volumes/jhipster/mAgents/mongodb/:/data/db/

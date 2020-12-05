@@ -1,0 +1,67 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="customer">
+            <h2><span>Customer</span> {{ customer.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span>Customer ID</span></dt>
+                <dd>
+                    <span>{{ customer.customerID }}</span>
+                </dd>
+                <dt><span>First Name</span></dt>
+                <dd>
+                    <span>{{ customer.firstName }}</span>
+                </dd>
+                <dt><span>Last Name</span></dt>
+                <dd>
+                    <span>{{ customer.lastName }}</span>
+                </dd>
+                <dt><span>Email Address</span></dt>
+                <dd>
+                    <span>{{ customer.emailAddress }}</span>
+                </dd>
+                <dt><span>Home Phone</span></dt>
+                <dd>
+                    <span>{{ customer.homePhone }}</span>
+                </dd>
+                <dt><span>Mobile Phone</span></dt>
+                <dd>
+                    <span>{{ customer.mobilePhone }}</span>
+                </dd>
+                <dt><span>Attachment</span></dt>
+                <dd>
+                    <div *ngIf="customer.attachment">
+                        <a (click)="openFile(customer.attachmentContentType, customer.attachment)">
+                            <img [src]="'data:' + customer.attachmentContentType + ';base64,' + customer.attachment" style="max-width: 100%;" alt="customer image"/>
+                        </a>
+                        {{ customer.attachmentContentType }}, {{ byteSize(customer.attachment) }}
+                    </div>
+                </dd>
+                <dt><span>Notes</span></dt>
+                <dd>
+                    <span>{{ customer.notes }}</span>
+                </dd>
+                <dt><span>Date Created</span></dt>
+                <dd>
+                    <span>{{ customer.dateCreated }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/customer', customer.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

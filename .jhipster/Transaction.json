@@ -1,0 +1,50 @@
+{
+  "name": "Transaction",
+  "fields": [
+    {
+      "fieldName": "transReference",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "required",
+        "unique"
+      ]
+    },
+    {
+      "fieldName": "transAmount",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "currency",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "transType",
+      "fieldType": "TransType",
+      "fieldValues": "DEPOSIT,WITHDRAWAL"
+    },
+    {
+      "fieldName": "transStatus",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "custID",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "transDate",
+      "fieldType": "Instant"
+    }
+  ],
+  "relationships": [],
+  "changelogDate": "20201205112136",
+  "entityTableName": "transaction",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}
